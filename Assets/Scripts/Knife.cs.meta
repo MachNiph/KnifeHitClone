@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: c91de5c07d0ad424da27f3f2874e6158
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - rb: {instanceID: 0}
+  - woodParticleSystem: {fileID: 1071831770096922519, guid: 873c4ae02c6d5eb47841bca5aa0ab9db, type: 3}
+  - appleCutSystem: {instanceID: 0}
+  - knifeController: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
