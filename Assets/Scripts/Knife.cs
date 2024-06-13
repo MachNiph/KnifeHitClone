@@ -21,8 +21,7 @@ public class Knife : MonoBehaviour
     private GameObject appleCutSystem;
     public bool dead;
     public bool canThrow = true;
-    [SerializeField]
-    private KnifeController knifeController;
+    public KnifeController knifeController;
     public float delayBeforeGameOver = 1f;
 
     private void Update()

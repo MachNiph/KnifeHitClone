@@ -8,20 +8,20 @@ public class KnifeController : MonoBehaviour
     private Knife[] knives;
     [SerializeField]
     private int knifeHitIndex;
-    [SerializeField]
-    private ShatteringWood shatteringWood;
-    [SerializeField]
-    private Wood wood;
+
     [SerializeField]
     private GameObject knifeThrownView;
     [SerializeField]
     private GameObject[] knifeThrownViews;
 
     [SerializeField]
+    private LevelSpawner levelSpawner;
+
+    [SerializeField]
     private Vector2 initialPosition;
     [SerializeField]
     private float spacing;
-    private bool lastKnifeHitWood = false;
+    public bool lastKnifeHitWood = false;
     [SerializeField]
     private float gameViewHeight;
 
@@ -29,8 +29,33 @@ public class KnifeController : MonoBehaviour
     private TextMeshProUGUI scoreTextMeshPro;
     private int score = 0;
 
+    [SerializeField]
+    private Knife knifePrefab;
+
+
     private void Start()
     {
+        SpawnKnife(9);
+        knifeThrownViews = new GameObject[knives.Length];
+
+        KnifeViewSpawn();
+    }
+
+    public void KnifeViewSpawn()
+    {
+        // Clear existing knife views
+        if (knifeThrownViews != null)
+        {
+            for (int i = 0; i < knifeThrownViews.Length; i++)
+            {
+                if (knifeThrownViews[i] != null)
+                {
+                    Destroy(knifeThrownViews[i]);
+                }
+            }
+        }
+
+        // Initialize the knifeThrownViews array
         knifeThrownViews = new GameObject[knives.Length];
 
         float totalKnifeHeight = knives.Length * spacing;
@@ -48,7 +73,7 @@ public class KnifeController : MonoBehaviour
 
     private void ChangeKnifeColor(int index)
     {
-        if (index >= 0 && index < knives.Length)
+        if (index >= 0 && index < knifeThrownViews.Length)
         {
             SpriteRenderer sr = knifeThrownViews[index].GetComponent<SpriteRenderer>();
             if (sr != null)
@@ -58,11 +83,26 @@ public class KnifeController : MonoBehaviour
         }
     }
 
+    public void SpawnKnife(int howManyKnives)
+    {
+        knifeHitIndex = 0;
+        knives = new Knife[howManyKnives];
+
+        for (int i = 0; i < howManyKnives; i++)
+        {
+            Knife knife = Instantiate(knifePrefab, new Vector2(0, -3), quaternion.identity);
+            knife.transform.SetParent(transform);
+            knives[i] = knife;
+            knife.knifeController = this;
+            knives[i].gameObject.SetActive(i == 0); // Activate only the first knife initially
+        }
+    }
+
     private void Update()
     {
         if (Input.GetMouseButtonDown(0) && knifeHitIndex < knives.Length)
         {
-            if (knifeHitIndex == 0 || !knives[knifeHitIndex - 1].dead) 
+            if (knifeHitIndex == 0 || !knives[knifeHitIndex - 1].dead)
             {
                 knives[knifeHitIndex].Throw();
                 ChangeKnifeColor(knifeHitIndex);
@@ -91,9 +131,8 @@ public class KnifeController : MonoBehaviour
     {
         if (lastKnifeHitWood)
         {
-            Debug.Log("Shattering wood");
-            shatteringWood.Shatter();
-            Destroy(wood.gameObject);
+            levelSpawner.currentShatteringWood.Shatter();
+            Destroy(levelSpawner.curremtWood.gameObject);
         }
     }
 

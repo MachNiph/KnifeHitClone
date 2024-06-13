@@ -17,11 +17,8 @@ public class Wood : MonoBehaviour
     [SerializeField]
     private int index = 0;
 
-    private GameObject wood;
-
     private void Start()
     {
-       
         if (woodData.Length > 0)
         {
             currentAngle = woodData[0].rotationAngle;
