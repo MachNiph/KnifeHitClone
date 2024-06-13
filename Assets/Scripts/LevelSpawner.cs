@@ -19,6 +19,8 @@ public class LevelSpawner : MonoBehaviour
     [SerializeField]
     private int currentLevelIndex=0;
 
+  
+
     private void Start()
     {
         StartCoroutine(LevelChange());
@@ -37,7 +39,7 @@ public class LevelSpawner : MonoBehaviour
             currentLevelIndex++;
             knifeController.lastKnifeHitWood = false;
 
-            knifeController.SpawnKnife(Random.Range(5,14));
+            knifeController.SpawnKnife(Random.Range(5,10));
             knifeController.KnifeViewSpawn();
         }
     }

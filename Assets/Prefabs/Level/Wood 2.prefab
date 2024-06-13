@@ -102,12 +102,12 @@ MonoBehaviour:
   rotationSpeed: 100
   woodData:
   - rotationAngle: 0
-    speedMultiplier: 1.5
-    direction: 0
-  - rotationAngle: 360
     speedMultiplier: 1
     direction: 0
-  - rotationAngle: 720
+  - rotationAngle: 200
+    speedMultiplier: 2
+    direction: 0
+  - rotationAngle: 190
     speedMultiplier: 1
     direction: 0
   - rotationAngle: 360

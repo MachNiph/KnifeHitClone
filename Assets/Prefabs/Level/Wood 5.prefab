@@ -105,13 +105,13 @@ MonoBehaviour:
     speedMultiplier: 1.5
     direction: 0
   - rotationAngle: 360
+    speedMultiplier: 1.7
+    direction: 0
+  - rotationAngle: 410
     speedMultiplier: 1
     direction: 0
   - rotationAngle: 720
-    speedMultiplier: 1
-    direction: 0
-  - rotationAngle: 360
-    speedMultiplier: 1
+    speedMultiplier: 1.5
     direction: 0
   currentAngle: 0
   index: 0

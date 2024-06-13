@@ -24,12 +24,28 @@ public class Knife : MonoBehaviour
     public KnifeController knifeController;
     public float delayBeforeGameOver = 1f;
     public SpriteRenderer spriteRenderer;
+    public int appleScore = 0;
+    [SerializeField]
+    private AudioSource audioSource;
+    [SerializeField]
+    private AudioClip[] audioClip;
 
-    private void Update()
+    private void Start()
+    {
+        if (audioSource == null)
+        {
+            Debug.LogError("AudioSource is not assigned!");
+        }
+        if (audioClip.Length == 0)
+        {
+            Debug.LogError("AudioClip array is empty!");
+        }
+    }
+
+    private void FixedUpdate()
     {
         if (dead)
         {
-          
             rb.transform.Rotate(Vector3.forward * rotateSpeed * Time.deltaTime);
             StartCoroutine(LoadGameOverAfterDelay());
         }
@@ -37,8 +53,9 @@ public class Knife : MonoBehaviour
 
     public void Throw()
     {
-        if (canThrow && !dead)  
+        if (canThrow && !dead)
         {
+            PlayAudio(0);
             rb.AddForce(new Vector2(0, throwForce), ForceMode2D.Impulse);
         }
     }
@@ -53,6 +70,7 @@ public class Knife : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Wood"))
         {
+            PlayAudio(1);
             transform.SetParent(collision.transform);
             rb.velocity = Vector2.zero;
             Instantiate(woodParticleSystem, transform.position, Quaternion.identity);
@@ -65,6 +83,7 @@ public class Knife : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Knife") && collision.GetComponent<Knife>().rb.isKinematic)
         {
+            PlayAudio(2);
             rb.velocity = Vector2.zero;
             rb.isKinematic = false;
             transform.SetParent(null);
@@ -74,8 +93,24 @@ public class Knife : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Apple"))
         {
+            PlayAudio(3);
             Instantiate(appleCutSystem, collision.transform.position, Quaternion.identity);
             Destroy(collision.gameObject);
+            appleScore += 2;
+            knifeController.UpdateAppleScore();
+        }
+    }
+
+    private void PlayAudio(int clipIndex)
+    {
+        if (audioClip.Length > clipIndex && audioClip[clipIndex] != null)
+        {
+            audioSource.clip = audioClip[clipIndex];
+            audioSource.Play();
+        }
+        else
+        {
+            Debug.LogWarning($"AudioClip at index {clipIndex} is not assigned!");
         }
     }
 }

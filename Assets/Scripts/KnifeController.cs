@@ -28,10 +28,15 @@ public class KnifeController : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI scoreTextMeshPro;
     private int score = 0;
+    [SerializeField]
+    private TextMeshProUGUI appleScoreShow;
+   
 
     [SerializeField]
     private Knife knifePrefab;
     public Sprite[] knifeSprites;
+
+    private int totalAppleScore = 0;
 
 
     private void Start()
@@ -142,4 +147,14 @@ public class KnifeController : MonoBehaviour
     {
         scoreTextMeshPro.text = score.ToString();
     }
+
+    public void UpdateAppleScore()
+    {
+        
+        totalAppleScore += 2;
+        appleScoreShow.text = totalAppleScore.ToString();
+        
+    }
+
+
 }
