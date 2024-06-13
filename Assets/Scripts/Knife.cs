@@ -23,6 +23,7 @@ public class Knife : MonoBehaviour
     public bool canThrow = true;
     public KnifeController knifeController;
     public float delayBeforeGameOver = 1f;
+    public SpriteRenderer spriteRenderer;
 
     private void Update()
     {

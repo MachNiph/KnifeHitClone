@@ -8,18 +8,23 @@ public class SkinSelector : MonoBehaviour
 {
     [SerializeField]
     private SelectData[] selectDatas;
+    [SerializeField]
+    public Image selectedImage;
 
     private void Start()
     {
         for (int i = 0; i < selectDatas.Length; i++)
         {
-            selectDatas[i].button.onClick.AddListener(SelectKnife);
+            int index = i;
+            SelectData data = selectDatas[i];
+            data.button.onClick.AddListener(()=>SelectKnife(index));
         }
     }
 
-    public void SelectKnife()
+    public void SelectKnife(int index)
     {
-
+        selectedImage.sprite = selectDatas[index].knifeSprite;
+        PlayerPrefs.SetInt("knifeIndex", index);
     }
 }
 

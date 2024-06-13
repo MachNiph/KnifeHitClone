@@ -31,6 +31,7 @@ public class KnifeController : MonoBehaviour
 
     [SerializeField]
     private Knife knifePrefab;
+    public Sprite[] knifeSprites;
 
 
     private void Start()
@@ -91,6 +92,7 @@ public class KnifeController : MonoBehaviour
         for (int i = 0; i < howManyKnives; i++)
         {
             Knife knife = Instantiate(knifePrefab, new Vector2(0, -3), quaternion.identity);
+            knife.spriteRenderer.sprite = knifeSprites[PlayerPrefs.GetInt("knifeIndex")];
             knife.transform.SetParent(transform);
             knives[i] = knife;
             knife.knifeController = this;

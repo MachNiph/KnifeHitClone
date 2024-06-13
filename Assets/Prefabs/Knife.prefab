@@ -136,6 +136,7 @@ MonoBehaviour:
   canThrow: 1
   knifeController: {fileID: 0}
   delayBeforeGameOver: 1
+  spriteRenderer: {fileID: 3788876603557384979}
 --- !u!70 &7569927682076345383
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

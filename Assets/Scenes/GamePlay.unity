@@ -521,6 +521,16 @@ MonoBehaviour:
   gameViewHeight: 10
   scoreTextMeshPro: {fileID: 1764806968}
   knifePrefab: {fileID: 3316733177010752851, guid: 70f98256ba7349047bc7aa0d6265991d, type: 3}
+  knifeSprites:
+  - {fileID: -1879970383, guid: 8a18ccc1b2e608a40b442b3ffc1e1b59, type: 3}
+  - {fileID: -1276541569, guid: 8a18ccc1b2e608a40b442b3ffc1e1b59, type: 3}
+  - {fileID: -711731203, guid: 8a18ccc1b2e608a40b442b3ffc1e1b59, type: 3}
+  - {fileID: 1327584933, guid: 8a18ccc1b2e608a40b442b3ffc1e1b59, type: 3}
+  - {fileID: -502451290, guid: 8a18ccc1b2e608a40b442b3ffc1e1b59, type: 3}
+  - {fileID: 1973380386, guid: 8a18ccc1b2e608a40b442b3ffc1e1b59, type: 3}
+  - {fileID: 530522504, guid: 8a18ccc1b2e608a40b442b3ffc1e1b59, type: 3}
+  - {fileID: 1428835514, guid: bee50e8c55fc0e54584ccf6fbeaa1d91, type: 3}
+  - {fileID: -1392443362, guid: bee50e8c55fc0e54584ccf6fbeaa1d91, type: 3}
 --- !u!1 &1373066395
 GameObject:
   m_ObjectHideFlags: 0
