@@ -6,15 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/GamePlay.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
-  - enabled: 1
-    path: Assets/Scenes/GameOver.unity
-    guid: 5f7e03a3042ae0145a144214a568ae93
-  - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 786d444f6d1c840459ffba04a491360d
   - enabled: 1
+    path: Assets/Scenes/GamePlay.unity
+    guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
     path: Assets/Scenes/KnifeSelect.unity
     guid: 465a11d5d200f0f44b9eed74f4842818
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 5f7e03a3042ae0145a144214a568ae93
   m_configObjects: {}

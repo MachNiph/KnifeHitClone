@@ -74,12 +74,16 @@ public class Knife : MonoBehaviour
             transform.SetParent(collision.transform);
             rb.velocity = Vector2.zero;
             Instantiate(woodParticleSystem, transform.position, Quaternion.identity);
+           
             rb.isKinematic = true;
 
             if (knifeController != null)
             {
                 knifeController.OnKnifeHitWood(this);
             }
+
+            StartCoroutine(VibrateWood(collision.gameObject));
+
         }
         else if (collision.gameObject.CompareTag("Knife") && collision.GetComponent<Knife>().rb.isKinematic)
         {
@@ -99,6 +103,25 @@ public class Knife : MonoBehaviour
             appleScore += 2;
             knifeController.UpdateAppleScore();
         }
+    }
+
+    private IEnumerator VibrateWood(GameObject woodObject)
+    {
+        Vector3 originalPosition = woodObject.transform.position;
+        float vibrationDuration = 0.05f;  
+        float vibrationIntensity = 0.05f; 
+        float elapsedTime = 0f;
+
+        while (elapsedTime < vibrationDuration)
+        {
+            Vector3 randomOffset = Random.insideUnitCircle * vibrationIntensity;
+            woodObject.transform.position = originalPosition + randomOffset;
+
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        woodObject.transform.position = originalPosition;
     }
 
     private void PlayAudio(int clipIndex)

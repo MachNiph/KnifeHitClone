@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5131375010059819799}
   - component: {fileID: 4107195320022847839}
   m_Layer: 0
-  m_Name: Wood 5
+  m_Name: Wood 6
   m_TagString: Wood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34,7 +34,6 @@ Transform:
   m_Children:
   - {fileID: 7150641051871344466}
   - {fileID: 6949133251794577482}
-  - {fileID: 3582423520522473055}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6602589792636916578
@@ -78,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 6764bfb7bf859ce4b9515bd06da0567f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e4adc9ee9102a0446b0314c49c0cd517, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -152,72 +151,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.19
---- !u!1001 &356934878300885782
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 6000174660597967146}
-    m_Modifications:
-    - target: {fileID: 3837987549204012361, guid: 70f98256ba7349047bc7aa0d6265991d, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.68
-      objectReference: {fileID: 0}
-    - target: {fileID: 3837987549204012361, guid: 70f98256ba7349047bc7aa0d6265991d, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.21
-      objectReference: {fileID: 0}
-    - target: {fileID: 3837987549204012361, guid: 70f98256ba7349047bc7aa0d6265991d, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3837987549204012361, guid: 70f98256ba7349047bc7aa0d6265991d, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 3837987549204012361, guid: 70f98256ba7349047bc7aa0d6265991d, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3837987549204012361, guid: 70f98256ba7349047bc7aa0d6265991d, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3837987549204012361, guid: 70f98256ba7349047bc7aa0d6265991d, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 3837987549204012361, guid: 70f98256ba7349047bc7aa0d6265991d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3837987549204012361, guid: 70f98256ba7349047bc7aa0d6265991d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3837987549204012361, guid: 70f98256ba7349047bc7aa0d6265991d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -270
-      objectReference: {fileID: 0}
-    - target: {fileID: 8180204137425484122, guid: 70f98256ba7349047bc7aa0d6265991d, type: 3}
-      propertyPath: m_Name
-      value: Knife (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8905038284247420941, guid: 70f98256ba7349047bc7aa0d6265991d, type: 3}
-      propertyPath: m_BodyType
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 70f98256ba7349047bc7aa0d6265991d, type: 3}
---- !u!4 &3582423520522473055 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3837987549204012361, guid: 70f98256ba7349047bc7aa0d6265991d, type: 3}
-  m_PrefabInstance: {fileID: 356934878300885782}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6139253503140263171
 PrefabInstance:
   m_ObjectHideFlags: 0

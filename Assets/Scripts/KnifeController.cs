@@ -27,7 +27,7 @@ public class KnifeController : MonoBehaviour
 
     [SerializeField]
     private TextMeshProUGUI scoreTextMeshPro;
-    private int score = 0;
+    public int score = 0;
     [SerializeField]
     private TextMeshProUGUI appleScoreShow;
    
@@ -37,6 +37,8 @@ public class KnifeController : MonoBehaviour
     public Sprite[] knifeSprites;
 
     private int totalAppleScore = 0;
+    [SerializeField]
+    private AudioSource woodBreakAudioSource;
 
 
     private void Start()
@@ -107,7 +109,7 @@ public class KnifeController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && knifeHitIndex < knives.Length)
+        if ((Input.GetMouseButtonDown(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)) && knifeHitIndex < knives.Length)
         {
             if (knifeHitIndex == 0 || !knives[knifeHitIndex - 1].dead)
             {
@@ -129,6 +131,7 @@ public class KnifeController : MonoBehaviour
 
         if (knifeHitIndex == knives.Length) // Winning that level condition here
         {
+          
             lastKnifeHitWood = true;
             CheckWoodDestruction();
         }
@@ -139,6 +142,7 @@ public class KnifeController : MonoBehaviour
         if (lastKnifeHitWood)
         {
             levelSpawner.currentShatteringWood.Shatter();
+            woodBreakAudioSource.Play();
             Destroy(levelSpawner.curremtWood.gameObject);
         }
     }
@@ -146,6 +150,7 @@ public class KnifeController : MonoBehaviour
     private void UpdateScore()
     {
         scoreTextMeshPro.text = score.ToString();
+        PlayerPrefs.SetInt("Score", score);
     }
 
     public void UpdateAppleScore()

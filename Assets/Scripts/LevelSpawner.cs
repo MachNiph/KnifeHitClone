@@ -19,6 +19,12 @@ public class LevelSpawner : MonoBehaviour
     [SerializeField]
     private int currentLevelIndex=0;
 
+    [SerializeField]
+    private AudioSource audioSource;
+
+    [SerializeField]
+    public int level;
+
   
 
     private void Start()
@@ -31,11 +37,14 @@ public class LevelSpawner : MonoBehaviour
 
         while (true)
         {
+            level++;
+            PlayerPrefs.SetInt("Level", level);
+            audioSource.Play();
             GameObject wood = Instantiate(woods[currentLevelIndex], spawnPositon, Quaternion.identity);
             currentShatteringWood = Instantiate(shatteringWoodPrefab, shatteringWoodSpawnPositon, Quaternion.identity);
             curremtWood = wood;
             yield return new WaitUntil(() => knifeController.lastKnifeHitWood);
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1f);
             currentLevelIndex++;
             knifeController.lastKnifeHitWood = false;
 
